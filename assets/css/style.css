@@ -522,3 +522,14 @@ a[href$=".pdf"]::after {
   -webkit-transition: font-size 1s ease;
   transition: font-size 1s ease;
  }
+
+
+ /* ================== ACTIVIDAD 5.4.1 ================== */
+ #reclamaciones {
+  transition: transform 1s ease;
+  transform-origin: bottom right;
+ }
+
+ #reclamaciones:hover {
+  transform: rotate(-90deg) scale(0.2);
+ }
