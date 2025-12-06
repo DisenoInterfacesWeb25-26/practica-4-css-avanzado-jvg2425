@@ -1,3 +1,8 @@
+/* 
+De cara a la práctica 1.2, elimino de esta primera parte del css todo lo relacionado tipografía
+y layout. Pondré a continuación el layout y tipgrafía.
+*/
+
 /* ============================== COLORES BASE ============================== */
 /*
 Defino aquí las variables CSS para los colores base, definidos en la práctica 1.
@@ -52,7 +57,11 @@ principal.
     --table-row-alt: #f9fafb;
 
     /* ========= Fuentes ========= */
-    --font-sans: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-family-movil: "Times New Roman", Times, serif;
+    --font-family-tablet: Calibri, sans-serif;
+    --font-family-pc: Arial, sans-serif;
+
+    --font-sans: var(--font-family-movil);
 }
 
 /* ============================== ACTIVIDADES ============================== */
@@ -135,10 +144,10 @@ footer {
   padding-top: 1em;
 }
 
-.footer-top { display:flex; flex-wrap:wrap; gap:1em; justify-content:space-between; align-items:flex-start; }
+/*.footer-top { display:flex; flex-wrap:wrap; gap:1em; justify-content:space-between; align-items:flex-start; }*/
 
 .footer-social a{
-  display:inline-flex;
+  /*display:inline-flex;*/
   align-items:center;
   gap: 0.4em;
   line-height: 1;          /* evita altura extra de línea */
@@ -170,13 +179,8 @@ header, nav, footer, address, section, article, aside { line-height: 1.6; }
 
 .grid { display: grid; gap: 1em; grid-template-columns: 1fr; }
 
-@media (min-width: 56rem){ 
-  .grid{ grid-template-columns: 2fr 1fr; } 
-  .container { padding: 0.1em;  }
-}
 
 #contenido > section {
-  display: grid;
   gap: 1em;
   border-color: var(--color-primario);
 }
@@ -190,7 +194,6 @@ header, nav, footer, address, section, article, aside { line-height: 1.6; }
 }
 
 #contenido > aside {
-  align-self: start;
   border: 1px solid var(--color-primario);
   border-radius: 0.65em;
   padding: 1em;
@@ -363,4 +366,109 @@ tbody tr:nth-child(even) { background-color: var(--table-row-alt); }
   display: block;
   margin: 1em auto;
   text-align: center;
+}
+
+
+/* ============================= ACTIVIDAD 1.2, PRÁCTICA 4 ============================= */
+/* ====== LAYOUT CON GRID PARA EL MAIN ====== */
+
+/* --- MÓVIL: una columna, sección arriba y aside debajo --- */
+/* (por defecto < 700px) */
+#contenido {
+  display: flex;
+  flex-direction: column;
+}
+
+/* En móvil mostramos todo */
+#nav1,
+#nav2,
+#mapa,
+#contenido > section {
+    width: 100%;
+}
+
+
+
+/* En móvil usamos la fuente definida para móvil */
+:root {
+  --font-sans: var(--font-family-movil);
+}
+
+
+/* --- TABLET: dos columnas, NAV1 a la izquierda y CUERPO a la derecha --- */
+@media screen and (min-width: 700px) and (max-width: 1199px) {
+  #contenido {
+    display: grid;
+    grid-template-columns: 22% 1fr; /* dos columnas: nav1, contenido */
+    grid-template-rows: auto auto; /* dos filas (la segunda par el mapa) */
+    gap: 1em;
+  }
+
+  #nav1 {
+    grid-column: 1 / 2;  /* primera columna */
+  }
+
+  #nav2 {
+    display: none;  /* ocultamos nav2 en tablet */
+  }
+
+  #contenido > section {
+    grid-column: 2; /* segunda columna  */
+  }
+
+  .mapa{
+    grid-column: span 2; /* ocupa las dos columnas */
+    width: 100%;
+  }
+
+  .mapa > iframe {
+    width: 100%;  /* el mapa ocupa todo el ancho de su celda */
+    height: auto;
+  }
+
+  /* En tablet usamos la fuente definida para tablet */
+  :root {
+    --font-sans: var(--font-family-tablet);
+  }
+}
+
+/* --- PC: tres columnas, NAV1 a la izquierda, CUERPO en el centro y NAV2 a la derecha --- */
+@media screen  and (min-width: 1200px) {
+  #contenido {
+    display: grid;
+    grid-template-columns: 22% 60% 1fr; /* tres columnas: nav1, contenido, mapa */
+    grid-template-rows: auto auto; /* dos filas */
+    gap: 1em;
+  }
+
+  #nav1 {
+    grid-column: 1 / 2;  /* primera columna */
+    grid-row: span 2;
+  }
+
+  #nav2 {
+    grid-column: 2/4; /* segunda columna */
+    grid-row: 1 / 2;
+  }
+
+  #contenido > section {
+    grid-column: 2; /* segunda columna  */
+    grid-row: 2 / 3;
+    width: 100%;
+  }
+
+  .mapa{
+    grid-column: 3; /* tercera columna */
+    grid-row: 2 / 3;
+  }
+
+  .mapa > iframe {
+    width: 100%;  /* el mapa ocupa todo el ancho de su celda */
+    height: auto;
+  }
+
+  /* Fuente PC */
+  :root {
+    --font-sans: var(--font-family-pc);
+  }
 }
