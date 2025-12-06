@@ -472,3 +472,9 @@ tbody tr:nth-child(even) { background-color: var(--table-row-alt); }
     --font-sans: var(--font-family-pc);
   }
 }
+
+
+/* ================== ACTIVIDAD 4.6.1 ================== */
+.site-nav {
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
+}
