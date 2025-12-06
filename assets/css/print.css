@@ -1,0 +1,32 @@
+/* Ocultamos cabecera, navegación principal, aside y footer al imprimir */
+header,
+nav,
+aside,
+footer {
+    display: none !important;
+}
+
+/* Los !important son para asegurarnos de que estas reglas prevalezcan sobre otras */
+
+/* Opcional: hacemos que el contenido ocupe todo el ancho y sea legible */
+body {
+    font-family: serif;
+    font-size: 11pt;
+    line-height: 1.4;
+}
+
+.container, {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+
+/* Opcional: quitar colores de fondo que puedan gastar tinta */
+* {
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+}
