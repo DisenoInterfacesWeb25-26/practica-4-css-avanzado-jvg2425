@@ -400,30 +400,39 @@ tbody tr:nth-child(even) { background-color: var(--table-row-alt); }
   #contenido {
     display: grid;
     grid-template-columns: 22% 1fr; /* dos columnas: nav1, contenido */
-    grid-template-rows: auto auto; /* dos filas (la segunda par el mapa) */
+    grid-template-rows: auto auto auto auto; /* tres filas */
+    grid-auto-rows: auto; /* filas automáticas */
     gap: 1em;
   }
 
   #nav1 {
-    grid-column: 1 / 2;  /* primera columna */
+    grid-row: 1 / 3;
+    grid-column: 1 / 2 ;  /* primera columna */
   }
 
   #nav2 {
     display: none;  /* ocultamos nav2 en tablet */
   }
 
-  #contenido > section {
-    grid-column: 2; /* segunda columna  */
+  #contenido > section.novedades {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3; /* segunda columna  */
   }
 
   .mapa{
-    grid-column: span 2; /* ocupa las dos columnas */
+    grid-row: 3 / 4; /* tercera fila */
+    grid-column: 1 / 3; /* ocupa las dos columnas */
     width: 100%;
   }
 
   .mapa > iframe {
     width: 100%;  /* el mapa ocupa todo el ancho de su celda */
     height: auto;
+  }
+
+  .flex-demo {
+    grid-row: 2 / 3; /* segunda fila */
+    grid-column: 2 / 3;
   }
 
   /* En tablet usamos la fuente definida para tablet */
@@ -437,34 +446,39 @@ tbody tr:nth-child(even) { background-color: var(--table-row-alt); }
   #contenido {
     display: grid;
     grid-template-columns: 22% 60% 1fr; /* tres columnas: nav1, contenido, mapa */
-    grid-template-rows: auto auto; /* dos filas */
+    grid-template-rows: auto auto auto; /* tres filas */
     gap: 1em;
   }
 
   #nav1 {
     grid-column: 1 / 2;  /* primera columna */
-    grid-row: span 2;
+    grid-row: 1 / 4;
   }
 
   #nav2 {
-    grid-column: 2/4; /* segunda columna */
+    grid-column: 2 / 4; /* segunda columna, span 2 */
     grid-row: 1 / 2;
   }
 
-  #contenido > section {
-    grid-column: 2; /* segunda columna  */
+  #contenido > section.novedades {
+    grid-column: 2 / 3; /* segunda columna  */
     grid-row: 2 / 3;
     width: 100%;
   }
 
   .mapa{
     grid-column: 3; /* tercera columna */
-    grid-row: 2 / 3;
+    grid-row: 2 / 4;
   }
 
   .mapa > iframe {
     width: 100%;  /* el mapa ocupa todo el ancho de su celda */
     height: auto;
+  }
+
+  .flex-demo {
+    grid-row: 3 / 4; /* segunda fila */
+    grid-column: 2 / 4;
   }
 
   /* Fuente PC */
@@ -533,3 +547,45 @@ a[href$=".pdf"]::after {
  #reclamaciones:hover {
   transform: rotate(-90deg) scale(0.2);
  }
+
+ /* ================== ACTIVIDAD 4.11.1 ================== */
+ 
+.flex-demo {
+  /*clear: both;
+  display: block;*/
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid var(--neutral-200);
+  border-radius: 0.65em;
+  background: #fff;
+}
+
+.flex-demo h2 {
+  margin-bottom: 0.5rem;
+}
+
+.flex-demo p {
+  margin-bottom: 1rem;
+}
+
+/* Contenedor flexible */
+.flex-container-ejemplo {
+  display: flex;
+  flex-wrap: wrap;                 /* permite items se ajuste automáticamente */
+  justify-content: space-between;  
+  align-items: stretch;            
+  gap: 0.75rem;
+}
+
+/* Elementos flexibles */
+.flex-item {
+  flex: 1 1 150px;  /* grow = 1, shrink = 1, basis = 150px */
+  min-height: 80px;
+  border-radius: 0.5em;
+  border: 1px solid var(--color-primario-disabled);
+  background: var(--color-primario-off);
+  display: flex;  /* centar el texto dentro del item */
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
