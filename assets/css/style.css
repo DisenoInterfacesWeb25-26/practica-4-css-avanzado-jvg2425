@@ -503,3 +503,22 @@ a[href$=".pdf"]::after {
     margin-left: 0.3em;
     vertical-align: middle;
 }
+
+/* ================== ACTIVIDAD 5.3.1 ================== */
+/* Ya tengo transiciones en los enlaces de navegación  principales 
+.nav-list a {
+  display: inline-block;
+  padding: 0.55em 0.9em;
+  border-radius: 0.5em;
+  background: var(--color-primario-off);
+  color: var(--neutral-900);
+  border: 1px solid var(--color-primario-disabled);
+  transition: transform 0.05s ease, background-color 0.2s ease, color 0.2s ease;
+}
+*/
+ /* Se los añado al botón del formulario */
+ button:hover {
+  font-size: large;
+  -webkit-transition: font-size 1s ease;
+  transition: font-size 1s ease;
+ }
