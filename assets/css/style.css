@@ -478,3 +478,28 @@ tbody tr:nth-child(even) { background-color: var(--table-row-alt); }
 .site-nav {
   box-shadow: 0 4px 6px rgba(0,0,0,.1);
 }
+
+
+/* ================== ACTIVIDAD 4.7.1 ================== */
+/* Imágenes sin atributo alt */
+img:not([alt]) {
+    border: 3px solid red;
+}
+
+/* Como uso svg, también se lo aplico */
+svg:not([alt]) {
+    border: 3px solid red;
+}
+
+/* Dejo las imágenes de la página principal con alt y en las páginas SErvicios y Contacto no los pongo,
+para que se aprecie el funcionamiento */
+
+/* Ícono PDF para enlaces a PDF */
+a[href$=".pdf"]::after {
+    content: url('../images/pdf-icon.png'); /* Url relativa al archivo CSS */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.3em;
+    vertical-align: middle;
+}
