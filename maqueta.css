@@ -1,0 +1,158 @@
+/* ------------- Estilos base: MÓVIL (< 700px) ------------- */
+/* Mobile-first: todo apilado, fuente Times New Roman */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    background-color: #f4f4f4;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Bloques genéricos, mismos colores/tamaños para verlos bien */
+.cabecera,
+.menu-principal,
+.nav1,
+.nav2,
+.cuerpo,
+.banner,
+.footer {
+  background-color: #dbe9ff;
+  border: 1px solid #99b3ff;
+  text-align: center;
+  padding: 20px;
+  margin: 10px auto;
+  width: 90%;
+}
+
+/* Altura mínima paraCUERPO */
+.cuerpo {
+    min-height: 200px;
+}
+
+/* En móvil, todos ocupan 100%, sin floats */
+.cabecera,
+.menu-principal,
+.nav1,
+.nav2,
+.cuerpo,
+.banner,
+.footer {
+    width: 100%;
+    float: none;
+
+}
+
+/* En móvil, margen inferior para separar bloques */
+.cabecera,
+.menu-principal,
+.nav2,
+.cuerpo {
+  margin-bottom: 20px;
+}
+
+/* ------------- TABLET (700px - 1199px) ------------- */
+@media screen and (min-width: 700px) and (max-width: 1199px) {
+
+    body {
+        font-family: Calibri, sans-serif;
+    }
+
+    /* Cabecera, menú, banner y footer siguen a ancho completo */
+    .cabecera,
+    .menu-principal,
+    .banner,
+    .footer {
+        width: 100%;
+        float: none;
+    }
+
+    /* NAV1 y CUERPO en dos columnas */
+    .nav1 {
+        width: 22%;
+        float: left;
+        margin-bottom: 0; /* para alinearse mejor con el cuerpo */
+        margin-right: 3%;
+        min-height: 200px;
+    }
+
+    .cuerpo {
+        width: 75%;
+        float: left;
+        margin-bottom: 20px;
+    }
+
+    /* NAV2 se oculta en tablet */
+    .nav2 {
+        display: none;
+    }
+
+    .banner {
+      clear: both;
+    }
+}
+
+/* ------------- ORDENADOR (>= 1200px) ------------- */
+@media screen and (min-width: 1200px) {
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Cabecera y menú arriba a ancho completo */
+    .cabecera,
+    .menu-principal {
+        width: 100%;
+        float: none;
+    }
+
+    /* NAV1: columna izquierda */
+    .nav1 {
+        float: left;
+        width: 20%;
+        margin-bottom: 10px;
+        min-height: 380px;
+
+    }
+
+    /* Columna central: NAV2 y (CUERPO  con BANNER) uno debajo de otro */
+    .nav2 {
+        float: left;
+        width: 78%;
+        margin-left: 2%;
+        margin-bottom: 10px;
+        /*display: block; /* por si venía oculto de media query anterior */
+    }
+    .cuerpo {
+        float: left;
+        width: 60%;
+        margin-left: 2%;
+        margin-bottom: 20px;
+        min-height: 300px;
+    }
+
+
+    /* BANNER: columna derecha */
+    .banner {
+        float: right;
+        width: 16%;
+        margin-bottom: 10px;
+        min-height: 300px;
+    }
+
+    /* FOOTER: limpiar flotados y ocupar todo el ancho */
+    .footer {
+        clear: both;
+        width: 100%;
+        float: none;
+    }
+}

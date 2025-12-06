@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="40"
+     viewBox="0 0 240 40" aria-labelledby="title desc" role="img">
+  <title id="title">Logo de la tienda Supermercado DIW</title>
+  <desc id="desc">Rectángulo con icono de carrito y texto con el nombre de la marca</desc>
+
+  <!-- Fondo -->
+  <rect width="240" height="40" rx="6" fill="#457C22"/>
+
+  <!-- Carrito (24x24 aprox.) -->
+  <g transform="translate(10,8)" fill="none" stroke="#ffffff" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <!-- asa + borde superior -->
+    <path d="M1 3h4l2 10h10l3-8H6" />
+    <!-- ruedas -->
+    <circle cx="6" cy="18" r="2"/>
+    <circle cx="16" cy="18" r="2"/>
+  </g>
+
+  <!-- Texto -->
+  <text x="140" y="26" text-anchor="middle"
+        font-family="system-ui, Arial, Helvetica, sans-serif"
+        font-size="18" fill="white">
+    SUPERMERCADO DIW
+  </text>
+</svg>
